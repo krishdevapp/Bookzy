@@ -20,7 +20,7 @@ pipeline {
             steps{
                 echo 'Deploying on Tomcat '
                 sshagent(['tomcat-key']) {
-                    sh 'scp -v -o StrictHostKeyChecking=no target/demowar-0.0.1-SNAPSHOT.war ubuntu@$TOMCAT_IP:/opt/tomcat/webapps'
+                    sh 'scp -v -o StrictHostKeyChecking=no target/demowar-0.0.1-SNAPSHOT.war ubuntu@:http://18.206.251.126:8080/manager/text/deploy?path=/bookzy&update=true'
                 }
             }
         }
